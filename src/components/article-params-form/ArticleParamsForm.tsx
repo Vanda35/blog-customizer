@@ -31,11 +31,11 @@ export const ArticleParamsForm = ({
 	const [isOpen, setIsOpen] = useState(false);
 
 	const [formState, setFormState] = useState({
-		fontFamily: articleState.fontFamilyOption,
+		fontFamilyOption: articleState.fontFamilyOption,
 		fontColor: articleState.fontColor,
 		backgroundColor: articleState.backgroundColor,
 		contentWidth: articleState.contentWidth,
-		fontSize: articleState.fontSizeOption,
+		fontSizeOption: articleState.fontSizeOption,
 	});
 
 	const formRef = useRef<HTMLFormElement>(null);
@@ -51,11 +51,11 @@ export const ArticleParamsForm = ({
 
 		setArticleState({
 			...formState,
-			fontFamilyOption: formState.fontFamily,
+			fontFamilyOption: formState.fontFamilyOption,
 			fontColor: formState.fontColor,
 			backgroundColor: formState.backgroundColor,
 			contentWidth: formState.contentWidth,
-			fontSizeOption: formState.fontSize,
+			fontSizeOption: formState.fontSizeOption,
 		});
 
 		setIsOpen(false);
@@ -65,11 +65,11 @@ export const ArticleParamsForm = ({
 		event.preventDefault();
 
 		setFormState({
-			fontFamily: defaultArticleState.fontFamilyOption,
+			fontFamilyOption: defaultArticleState.fontFamilyOption,
 			fontColor: defaultArticleState.fontColor,
 			backgroundColor: defaultArticleState.backgroundColor,
 			contentWidth: defaultArticleState.contentWidth,
-			fontSize: defaultArticleState.fontSizeOption,
+			fontSizeOption: defaultArticleState.fontSizeOption,
 		});
 
 		setArticleState(defaultArticleState);
@@ -91,7 +91,7 @@ export const ArticleParamsForm = ({
 
 					<Select
 						title='Шрифт'
-						selected={formState.fontFamily}
+						selected={formState.fontFamilyOption}
 						options={fontFamilyOptions}
 						onChange={(newOption) =>
 							setFormState((prevFormState) => ({
@@ -103,7 +103,7 @@ export const ArticleParamsForm = ({
 					<RadioGroup
 						name='fontSize'
 						options={fontSizeOptions}
-						selected={formState.fontSize}
+						selected={formState.fontSizeOption}
 						title='Размер шрифта'
 						onChange={(newOption) =>
 							setFormState((prevFormState) => ({
